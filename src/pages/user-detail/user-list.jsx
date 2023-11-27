@@ -1,4 +1,3 @@
-
 import { FaCamera } from "react-icons/fa";
 import 'flowbite';
 import LeftSideBar from "./components/left-side-bar";

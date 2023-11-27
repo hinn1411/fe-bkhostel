@@ -9,11 +9,7 @@ const Header = () => {
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg></button>
             </div>
-<<<<<<< HEAD
             <div className="ml-96 pl-72 flex flex-row align-center items-center">
-=======
-            <div className="ml-96 pl-72 flex flex-row align-center items-center  ">
->>>>>>> 21f941dff3ec2f8b0dc8faf7974106ad5086caa8
                 <LiaFlagUsaSolid style={{ cursor: "pointer", fontSize: "35px", color: 'blue' }} />
                 <RxAvatar style={{ cursor: "pointer", fontSize: "35px", marginLeft: "20px" }} />
             </div>
