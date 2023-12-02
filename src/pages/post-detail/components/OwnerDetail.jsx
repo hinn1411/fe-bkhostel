@@ -28,4 +28,4 @@ const OwnerDetail = ({owner}) => {
     )
 }
 
-export default OwnerDetail
+export default OwnerDetail;

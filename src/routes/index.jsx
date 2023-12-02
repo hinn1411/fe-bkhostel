@@ -9,11 +9,11 @@ import EnterEmailPage from '../pages/enter-email/EnterEmail';
 import SendPasswordPage from '../pages/send-password/SendPassword';
 import SavePost from '../pages/save-post/SavePost';
 import PostDetail from '../pages/post-detail/PostDetail';
-import HistoryMoney from '../pages/history-money/history-money';
+import HistoryMoney from '../pages/history-money/HistoryMoney';
 import Recharge from '../pages/history-money/recharge';
-import AddUser from '../pages/user-detail/add-user';
-import ChangePassWord from '../pages/user-detail/change-password';
-import UserList from '../pages/user-detail/user-list';
+import AddUser from '../pages/user-detail/AddUser';
+import ChangePassWord from '../pages/user-detail/ChangePassword';
+import UserList from '../pages/user-detail/UserList';
 const router = createBrowserRouter([
   {
     path: '/',

@@ -3,7 +3,7 @@ import { RxAvatar } from "react-icons/rx";
 import { CiCreditCard2 } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { useState } from "react";
-import UserDetail from "./user-detail";
+import UserDetail from "./UserDetail";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import { RiArrowDownSFill } from "react-icons/ri";
 import 'flowbite';

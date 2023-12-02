@@ -1,5 +1,5 @@
 import 'flowbite';
-import LeftSideBar from "./components/left-side-bar";
+import LeftSideBar from './components/leftSideBar';
 import Header from "./components/header";
 
 const ChangePassWord = () => {
