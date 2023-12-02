@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { memo } from 'react';
 import PostList from './components/PostList';
 import RentalFilterList from './components/RentalFilterList';
