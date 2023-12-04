@@ -11,7 +11,7 @@ import SendPasswordPage from '../pages/send-password/SendPassword';
 import SavePost from '../pages/save-post/SavePost';
 import PostDetail from '../pages/post-detail/PostDetail';
 import HistoryMoney from '../pages/history-money/HistoryMoney';
-import Recharge from '../pages/history-money/recharge';
+import Recharge from '../pages/history-money/Recharge';
 import AddUser from '../pages/user-detail/AddUser';
 import ChangePassWord from '../pages/user-detail/ChangePassword';
 import UserList from '../pages/user-detail/UserList';
