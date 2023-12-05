@@ -1,53 +1,59 @@
 /* eslint-disable react/display-name */
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line react/display-name
-import { memo, useState,useEffect } from "react";
+import { memo, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import AdminPagination from "../../components/adminPagination/AdminPagination";
 import UserRow  from "../../components/tableRow/UserRow";
-import LeftSideBar from "../user-detail/components/LeftSideBar";
-import axios from "axios";
+import LeftSideBar from "../user-detail/components/left-side-bar";
 
-const accURL = import.meta.env.VITE_BACKEND_API + "/admin/user";
-const authToken = localStorage.getItem("token");
-const config = { Authorization: authToken };
-
-const UserList = memo(() => {
-  const [pageNum, setPageNum] = useState(()=>{
-    let pageNo = localStorage.getItem("postPage");
-    return pageNo?pageNo:1;
+const Pricing = memo(() => {
+  const [page, setPage] = useState({
+    current: 0,
+    quantity: 3,
   });
 
-  const [accounts, setAccounts] = useState({});
-  const getAccounts = async (pageNum) => {
-    try {
-      await axios
-        .get(`${accURL}?page=${pageNum}`, { headers: config })
-        .then((res) => {
-          setAccounts(res.data);
-        });
-    } catch (error) {
-      const customError = new Error();
-      customError.message = error.response.data.message;
-      throw customError;
-    }
-  };
-  useEffect(() => {
-    getAccounts(pageNum);
-    localStorage.removeItem("postPage");
-  }, [pageNum]);
-  console.log(accounts);
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      name: "Đạt Lê",
+      email: "datle@gmail.com",
+      role: "Admin",
+      status: "active",
+    },
+    {
+      id: 2,
+      name: "Lê Dũng",
+      email: "datle@gmail.com",
+      role: "User",
+      status: "active",
+    },
+    {
+      id: 3,
+      name: "Dũng K",
+      email: "datle@gmail.com",
+      role: "User",
+      status: "block",
+    },
+  ]);
+
   const handlePageChange = (newPage) => {
-    setPageNum(newPage);
+    setPage({
+      current: newPage,
+      quantity: page.quantity,
+    });
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  const handleDeletedItem = (id) => {
-    let temp = accounts?.users?.filter((item) => item._id !== id);
-    setAccounts({totalUsers:accounts.totalUsers-1,users:temp});
+  const handleDeletedItem = (event,id) => {
+    event.stopPropagation();
+    let temp = users.filter((item) => item.id !== id);
+    setUsers(temp);
+    console.log(id);
   };
+
   return (
     <div className="grid grid-cols-12">
       <LeftSideBar />
@@ -55,7 +61,7 @@ const UserList = memo(() => {
         <div className="pt-8 ml-8">
           <h2 className="font-bold text-3xl">Danh sách người dùng</h2>
           <div className="pr-8 mt-4">
-            <div className="bg-white w-full rounded-xl py-4 px-4 relative min-h-[600px] pb-36">
+            <div className="bg-white w-full rounded-xl py-4 px-4 relative min-h-[600px]">
               <div className="flex flex-row-reverse">
                 <form className="flex items-center">
                   <label htmlFor="simple-search" className="sr-only">
@@ -84,35 +90,31 @@ const UserList = memo(() => {
               <div className="mt-4 text-center">
                 <div className="grid grid-cols-16 font-bold bg-[#b6d6f2] rounded-xl py-2">
                   <div className="col-span-1">ID</div>
-                  <div className="col-span-4">Họ tên</div>
-                  <div className="col-span-4">Tên đăng nhập</div>
+                  <div className="col-span-5">Họ tên</div>
                   <div className="col-span-3">Email</div>
-                  <div className="col-span-1">Vai trò</div>
-                  <div className="col-span-1">Trạng thái</div>
-                  <div className="col-span-2">Thao tác</div>
+                  <div className="col-span-1">Role</div>
+                  <div className="col-span-3">Status</div>
+                  <div className="col-span-3">Action</div>
                 </div>
-                {
-                accounts?.users?.map((item, index) => {
+                {users.map((item, index) => {
                   return (
                     <UserRow
                       key={index}
-                      rowItem={{...item,id:index}}
-                      handleDeletedItem={handleDeletedItem}
+                      rowItem={item}
+                      handleDelete={handleDeletedItem}
                     />
                   );
-                })
-                }
+                })}
               </div>
               <div className="my-4 absolute bottom-0 left-0 right-0">
                 <span className="ml-4">
-                  Hiển thị 1 đến {accounts?.users?.length} của {accounts?.users?.length}{" "}
+                  Hiển thị 1 đến {users.length} của {users.length}{" "}
                   mục
                 </span>
                 <div className="flex justify-center text-center">
                   <AdminPagination
                     handleChange={handlePageChange}
-                    pageStatus={pageNum}
-                    maxPage = {Math.ceil(accounts.totalUsers/7)}
+                    pageStatus={page}
                   />
                 </div>
               </div>
@@ -124,4 +126,4 @@ const UserList = memo(() => {
   );
 });
 
-export default UserList;
+export default Pricing;

@@ -20,9 +20,15 @@ import Statistics from '../pages/statistics/Statistics';
 
 import HistoryMoney from '../pages/history-money/HistoryMoney';
 import Recharge from '../pages/history-money/recharge';
-import AddUser from '../pages/user-detail/AddUser';
-import ChangePassWord from '../pages/user-detail/ChangePassword';
-import UserInfo from '../pages/user-detail/UserInfo';
+import AddUser from '../pages/user-detail/add-user';
+import ChangePassWord from '../pages/user-detail/change-password';
+import UserDetail from '../pages/user-detail/user-list';
+import UserList from '../pages/manage-user/UserList';
+
+import PricingPage from '../pages/pricing/Pricing';
+import PostsPage from '../pages/posts/Posts';
+import DetailPost from '../pages/posts/DetailPost';
+import Statistics from '../pages/statistics/Statistics';
 
 import UserList from '../pages/manage-user/UserList';
 import PostHistory from '../pages/post-history/PostHistory';
@@ -146,14 +152,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: 'admin/userInfo',
-    element: <UserInfo />,
-    errorElement: <ErrorPage />,
-  },
-  {
     path: 'admin/user',
-    element: <UserInfo />,
-    errorElement: <ErrorPage />,
+    element: <UserDetail />,
   },
   {
     path: 'admin/pricing',
@@ -168,27 +168,6 @@ const router = createBrowserRouter([
   {
     path: 'admin/posts/detail',
     element: <DetailPost />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: '/post-history',
-    element: <PostHistory />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: '/profile',
-    element: <Profile />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: '/post-new',
-    element: <PostNew />,
-    errorElement: <ErrorPage />,
-  },
-
-  {
-    path: '/pricing',
-    element: <PricingPage />,
     errorElement: <ErrorPage />,
   },
   {

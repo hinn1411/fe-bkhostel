@@ -7,9 +7,6 @@ import UserDetail from "./user-detail";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { RiLogoutBoxRLine } from "react-icons/ri";
-
-
 import 'flowbite';
 
 const style = {
@@ -23,12 +20,7 @@ const LeftSideBar = () => {
         if (show == false) return setShow(true);
         else return setShow(false);
 
-    } 
-    const handleLogout = () => {
-        // localStorage.clear();
-        // navigate("../login")
     }
-
     return (
         <div className=" h-screen col-start-1 col-span-2 pl-3 lg:text-lg md:text-md sm:text-sm bg-white">
             <div className="my-8 ml-4 mb-3 hover:cursor-pointer lg:text-4xl md:text-3xl font-semibold text-[#0891B2]">BKHOSTEL</div>
@@ -51,10 +43,6 @@ const LeftSideBar = () => {
             <div className={style_list} onClick={()=>{navigate("../admin/pricing")}}>
                 <IoCartOutline style={style} />
                 <div className="my-4 ml-2">Pricing</div>
-            </div>
-            <div className={style_list} onClick={handleLogout}>
-                <RiLogoutBoxRLine style={style}/>
-                <div className="my-4 ml-2">Logout</div>
             </div>
         </div>
     )
