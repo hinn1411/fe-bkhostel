@@ -1,11 +1,47 @@
 import 'flowbite';
 import LeftSideBar from './components/leftSideBar';
 import Header from "./components/header";
+import { useState } from 'react';
+import axios from 'axios';
+
+const url = `https://bkhostel.hcmut.tech/admin/change-password`;
+const tokenUrl = `https://bkhostel.hcmut.tech/auth/sign-in`;
 
 const ChangePassWord = () => {
-    const handleChange = () => {
-        
+    // const [userInfo, setUserInfo] = useState({
+    //     id: '656ed077456cd9380f56795c',
+    //     newPassword: '123456789',
+    //     confirmPassword: '123456789',
+    // });
+    const userInfo = {
+        id: '656ed077456cd9380f56795c',
+        newPassword: '123456789',
+        confirmPassword: '123456789'
     }
+    const axiosInstance = axios.create({
+        baseURL: tokenUrl,
+    });
+    const bodyValue = {
+        "username": "HoaiTrang_Nguyen53",
+        "password": "123456"
+    };
+    let token; // initial state
+    axiosInstance.interceptors.request.use(async config => {
+        if (!token) {
+            const { data } = await axios.post(tokenUrl, bodyValue);
+            token = data.token;
+        }
+        config.headers.Authorization = `Bearer ${token}`;
+        return config
+    });
+    const handleChange = async () => {   
+        try {
+            const res = await axiosInstance.post(url, userInfo)
+                        .then(res=>console.log(res.data.message));
+        } catch (error) {
+            console.log(error.response);
+        }
+    };
     return (
         <div className="grid grid-cols-10 gap-3">
             <LeftSideBar />
