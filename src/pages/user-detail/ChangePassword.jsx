@@ -12,7 +12,8 @@ const ChangePassWord = () => {
         id: '656ed077456cd9380f56795c',
         newPassword: '',
         confirmPassword: '',
-    })
+    });
+    const [alert, setAlert] = useState("invisible");
     const axiosInstance = axios.create({
         baseURL: tokenUrl,
     });
@@ -29,11 +30,12 @@ const ChangePassWord = () => {
         config.headers.Authorization = `Bearer ${token}`;
         return config;
     });
-    const handleSubmit = async (e) => {   
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const res = await axiosInstance.post(url, userInfo)
-                        .then(res=>console.log(res.data.message));
+                .then(res => console.log(res.data.message));
+            setAlert('visible');
         } catch (error) {
             console.log(error.response);
         }
@@ -55,9 +57,17 @@ const ChangePassWord = () => {
                 <div className="my-8 ml-14 mt-8 hover:cursor-pointer text-2xl font-semibold text-black">
                     UsersList/{bodyValue.username}/Change Password
                 </div>
+
+
                 <div className="mx-14 bg-white text-[#797C7B] p-6 h-2/3 rounded-2xl">
+                    <div class={`${alert} flex items-center bg-blue-500 text-white text-sm font-bold ml-2 px-4 py-3 `} role="alert">
+                        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" /></svg>
+                        <p>Đổi mật khẩu thành công</p>
+                    </div>
                     <form className="w-1/2 mx-auto mt-16 mb-16">
+
                         <div class="grid gap-6 mb-10 md:grid-cols-1">
+                            
                             <div>
                                 <input value={userInfo.id} type="text" id="Id" class="bg-gray-50 border border-[#B6D6F2] text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Id" disabled />
                             </div>
