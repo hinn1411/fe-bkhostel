@@ -14,8 +14,7 @@ import HistoryMoney from '../pages/history-money/HistoryMoney';
 import Recharge from '../pages/history-money/recharge';
 import AddUser from '../pages/user-detail/AddUser';
 import ChangePassWord from '../pages/user-detail/ChangePassword';
-import UserList from '../pages/user-detail/UserList';
-
+import UserInfo from '../pages/user-detail/UserInfo';
 
 import PricingPage from '../pages/pricing/Pricing';
 import PostsPage from '../pages/posts/Posts';
@@ -90,7 +89,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'admin/user',
-    element: <UserList />,
+    element: <UserInfo />,
 
   },
   { path:'/pricing',

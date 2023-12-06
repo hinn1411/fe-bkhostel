@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Header from "./components/header";
 import LeftSideBar from "./components/leftSideBar";
-
 import axios from 'axios';
 
 const url = `https://bkhostel.hcmut.tech/admin/add-user`;

@@ -68,8 +68,8 @@ const Recharge = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {infoUser.map(user => (
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        {infoUser.map((user, i) => (
+                            <tr key={i} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 grid-cols-6 border-r-2">
                                     {user.date}
                                 </td>

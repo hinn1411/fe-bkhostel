@@ -6,6 +6,7 @@ import { useState } from "react";
 import UserDetail from "./UserDetail";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import { RiArrowDownSFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 import 'flowbite';
 
 const style = {
@@ -19,6 +20,10 @@ const LeftSideBar = () => {
         else return setShow(false);
 
     }
+    const navigate = useNavigate();
+    const navigateUserInfo = () => {
+        navigate('/admin/user');
+    }
     return (
         <div className=" h-screen col-start-1 col-span-2 pl-3 lg:text-lg md:text-md sm:text-sm bg-white">
             <div className="my-8 ml-4 mb-3 hover:cursor-pointer lg:text-4xl md:text-3xl font-semibold text-[#0891B2]">BKHOSTEL</div>
@@ -28,7 +33,7 @@ const LeftSideBar = () => {
             </div>
             <div className={style_list}>
                 <RxAvatar style={style} />
-                <div className="my-8 hover:cursor-pointer ml-2">Users</div>
+                <div onClick={navigateUserInfo} className="my-8 hover:cursor-pointer ml-2">Users</div>
 
                 {show === true ? <RiArrowDownSFill onClick={handleClick} style={{ marginLeft: '105px', fontSize: '20px' }} />
                     : <RiArrowDropRightFill onClick={handleClick} style={{ marginLeft: '100px', fontSize: '30px' }} />}
