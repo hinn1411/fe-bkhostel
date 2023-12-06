@@ -18,18 +18,17 @@ const LeftSideBar = () => {
     const handleClick = () => {
         if (show == false) return setShow(true);
         else return setShow(false);
-
     }
     const navigate = useNavigate();
     const navigateUserInfo = () => {
-        navigate('/admin/user');
+        navigate('/admin/userInfo');
     }
     return (
         <div className=" h-screen col-start-1 col-span-2 pl-3 lg:text-lg md:text-md sm:text-sm bg-white">
             <div className="my-8 ml-4 mb-3 hover:cursor-pointer lg:text-4xl md:text-3xl font-semibold text-[#0891B2]">BKHOSTEL</div>
             <div className={style_list}>
                 <PiTelevision style={style} />
-                <div className="my-8 hover:cursor-pointer ml-2 ">Statistics</div>
+                <div className="my-8 hover:cursor-pointer ml-2">Statistics</div>
             </div>
             <div className={style_list}>
                 <RxAvatar style={style} />

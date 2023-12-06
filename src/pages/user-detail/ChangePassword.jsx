@@ -1,5 +1,5 @@
 import 'flowbite';
-import LeftSideBar from './components/leftSideBar';
+import LeftSideBar from './components/LeftSideBar';
 import Header from "./components/header";
 import { useState } from 'react';
 import axios from 'axios';

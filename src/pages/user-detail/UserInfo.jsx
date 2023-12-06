@@ -1,9 +1,10 @@
 import { FaCamera } from "react-icons/fa";
 import 'flowbite';
-import LeftSideBar from "./components/leftSideBar";
+import LeftSideBar from "./components/LeftSideBar";
 import Header from "./components/header";
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const url = `https://bkhostel.hcmut.tech/admin/656a05505f358c9d0d473c67`;
 const tokenUrl = `https://bkhostel.hcmut.tech/auth/sign-in`;
@@ -71,6 +72,10 @@ const UserInfo = () => {
     useEffect(()=>{
         getData();
     }, []);
+    const navigate = useNavigate();
+    const navigateChangePassWord = () => {
+        navigate('/admin/user/changepassword');
+    }
     return (
         <div className="grid grid-cols-10 gap-3">
             <LeftSideBar />
@@ -91,7 +96,7 @@ const UserInfo = () => {
                         </div>
                         <div className="relative mx-auto">
                             <button type="submit" class="mt-14 w-full text-white bg-[#00537A] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Order History</button>
-                            <button type="submit" class="mt-2 w-full text-white bg-[#00537A] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Change Password</button>
+                            <button onClick={navigateChangePassWord} type="submit" class="mt-2 w-full text-white bg-[#00537A] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Change Password</button>
                         </div>
                     </div>
                     <form className="col-start-2 col-span-3">
