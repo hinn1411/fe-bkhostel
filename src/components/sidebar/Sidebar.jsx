@@ -13,15 +13,11 @@ const Sidebar = ({ }) => {
   const config = { Authorization: authToken };
   const { activeTab, updateActiveTab } = usePostFilterContext();
   const navigate = useNavigate();
+  // eslint-disable-next-line react/prop-types
   const [profile, setProfile] = useState({
     "username": "",
-    "password": "",
-    "role": "USER",
-    "status": "ACTIVE",
-    "email": "",
-    "full_name": "",
     "phone": "",
-    "avatar": "",
+    "avatar": "https://www.clevelanddentalhc.com/wp-content/uploads/2018/03/sample-avatar.jpg",
   });
 
   // const [active, setActive] = useState([0,0,0,0,0])

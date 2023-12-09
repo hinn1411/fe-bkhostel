@@ -171,6 +171,26 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+
+    path: '/post-history',
+    element: <PostHistory />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/post-new',
+    element: <PostNew />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/services',
+    element: <ServicesTable />,
+  },
+  {
     path: 'admin/statistics',
     element: <Statistics />,
     errorElement: <ErrorPage />,
